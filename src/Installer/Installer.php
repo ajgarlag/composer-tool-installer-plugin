@@ -143,10 +143,8 @@ class Installer
                 return $this;
             }
 
-            $composerFilename = $this->helper->getAbsolutePathToFile(
-                $this->configuration->getComposerBinDirectory(),
-                $tool->getFilename()
-            );
+            $composerFilename = $this->configuration->getComposerBinDirectory()
+                . DIRECTORY_SEPARATOR . $tool->getFilename();
 
             $this->helper->getFilesystem()->symlinkFile($filename, $composerFilename);
         }
